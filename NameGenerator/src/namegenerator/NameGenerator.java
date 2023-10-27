@@ -3,7 +3,7 @@ import java.io.*;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.ArrayList;
-import java.util.Collections; //Needed to do collections
+import java.util.Collections; 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,10 +13,10 @@ import java.util.HashSet;
 public class NameGenerator {
 
 	public static void main(String[] args) {
-		// A string people's names
+		
 		String[] peoples = {"Bob","Carol","Ted","Alice", "Hamza", "Diego", "Pamela", "Melissa", "Luke", "Louis", "Hrideta", "Diego", "Carol"};
 		
-		// asList method called to place the peoples array into a string list names
+		
         List<String> names = Arrays.asList(peoples); 
         Collections.shuffle(names);
         
@@ -28,17 +28,14 @@ public class NameGenerator {
         	}
         
         System.out.println();
-        
-        // File resource
+                
         String file = "C:\\temp\\names.dat";
-        
-        // Call function to write each name in the array list names into a file
+               
         writeNamesToFile(names, file);
         readNamesFromFile(file);
         
         }
 
-	// Function to write the duplicate names to a new file
 	public static void writeNamesToFile(List<String> names, String file) {
 		FileWriter fw = null; // used to write to the file
 		BufferedWriter bw = null;
@@ -67,7 +64,6 @@ public class NameGenerator {
 		}
 	}
 	
-	// Function to read all the names from the file
 	public static void readNamesFromFile(String file) {
 			FileReader fr = null;
 			BufferedReader br = null;
@@ -78,10 +74,9 @@ public class NameGenerator {
 				fr = new FileReader(file); // reads the file
 				br = new BufferedReader(fr); // associated with the file reader
 				String line = "";
-				
-				// while conditions: while the line read by the buffered reader is not null
+								
 				while((line = br.readLine()) != null) {
-					String [] arr = line.split(" "); // each line is separated into elements in array, each element is split by the space between them 
+					String [] arr = line.split(" "); 
 					
 					for(String name : arr) {
 						namesArr.add(name); // using the add method from the Array List
@@ -93,8 +88,7 @@ public class NameGenerator {
 			} catch(IOException e) {
 				e.printStackTrace();
 			}
-			// A Map is a key value pair
-			// Taking a value and representing it in something else
+			
 			Map<String, Integer> nameCount = new HashMap<>();
 			for(String name : namesArr) {
 				if(nameCount.containsKey(name)) {
